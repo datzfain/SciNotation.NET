@@ -5,7 +5,7 @@
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageId>SciNotation.NET</PackageId>
-		<Version>1.0.3</Version>
+		<Version>1.0.4</Version>
 		<Authors>Stelian Ionele</Authors>
 		<Company></Company>
 		<Description>Extension methods for formatting numbers in scientific notation (mantissa × 10^exponent).</Description>
