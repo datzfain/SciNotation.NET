@@ -3,7 +3,7 @@
 [![NuGet](https://img.shields.io/nuget/v/SciNotation.NET)](https://www.nuget.org/packages/SciNotation.NET)
 [![Build Status](https://github.com/datzfain/SciNotation.NET/actions/workflows/publish-nuget.yml/badge.svg)](https://github.com/datzfain/SciNotation.NET/actions)
 
-A simple, zero-dependency .NET library providing extension methods to format numeric values and strings into human-readable scientific notation (mantissa � 10^exponent).
+A simple, zero-dependency .NET library providing extension methods to format numeric values and strings into human-readable scientific notation (mantissa × 10ⁿ).
 
 ## Features
 
@@ -16,15 +16,14 @@ A simple, zero-dependency .NET library providing extension methods to format num
 
 Install via the .NET CLI:
 
-```bash
-dotnet add package SciNotation.NET
-```
+````bash
+dotnet add package SciNotation.NET```
 
 Or via the Package Manager Console:
 
 ```powershell
 Install-Package SciNotation.NET
-```
+````
 
 ## Usage
 
@@ -41,7 +40,7 @@ class Program
         // Format with 4 decimal places in the mantissa
         string scientific = value.ToScientificNotation(decimals: 4);
         Console.WriteLine(scientific);
-        // Output: "1.2346 � 10^4"
+        // Output: "1.2346 × 10⁴"
     }
 }
 ```
@@ -53,7 +52,7 @@ using SciNotation.NET;
 
 string input = "0.00000123";
 string result = input.ToScientificNotation(decimals: 2);
-// result == "1.23 � 10^-6"
+// result == "1.23 × 10⁻⁶"
 ```
 
 ### Culture-Specific Formatting
@@ -64,18 +63,18 @@ using SciNotation.NET;
 
 var culture = new CultureInfo("de-DE");
 string result = (1234.56).ToScientificNotation(decimals: 2, provider: culture);
-// result == "1,23 � 10^3"
+// result == "1,23 × 10³"
 ```
 
 ## API Reference
 
-| Method                                                                             | Description                                                                  |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `object.ToScientificNotation(int decimals = 6, IFormatProvider? provider = null)`  | Formats any supported type (`string`, `double`, `float`, `decimal`, integer) |
-| `double.ToScientificNotation(int decimals = 6, IFormatProvider? provider = null)`  | Formats a `double` value into scientific notation.                           |
-| `float.ToScientificNotation(int decimals = 6, IFormatProvider? provider = null)`   | Formats a `float` value into scientific notation.                            |
-| `decimal.ToScientificNotation(int decimals = 6, IFormatProvider? provider = null)` | Formats a `decimal` value into scientific notation.                          |
-| `string.ToScientificNotation(int decimals = 6, IFormatProvider? provider = null)`  | Parses and formats a numeric string into scientific notation.                |
+| Method                                                                             | Description                                                                              |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `object.ToScientificNotation(int decimals = 6, IFormatProvider? provider = null)`  | Formats any supported type (`string`, `double`, `float`, `decimal`, integer)             |
+| `double.ToScientificNotation(int decimals = 6, IFormatProvider? provider = null)`  | Formats a `double` value into scientific notation using superscript exponent.            |
+| `float.ToScientificNotation(int decimals = 6, IFormatProvider? provider = null)`   | Formats a `float` value into scientific notation using superscript exponent.             |
+| `decimal.ToScientificNotation(int decimals = 6, IFormatProvider? provider = null)` | Formats a `decimal` value into scientific notation using superscript exponent.           |
+| `string.ToScientificNotation(int decimals = 6, IFormatProvider? provider = null)`  | Parses and formats a numeric string into scientific notation using superscript exponent. |
 
 ## Building from Source
 
